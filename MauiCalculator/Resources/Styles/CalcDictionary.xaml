@@ -10,6 +10,7 @@
         
     </Style>
     <!--#endregion-->
+    <!--#region Labels -->
     <Style Class="LabelText" TargetType="Label">
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightText}, Dark={StaticResource DarkText}}"/>
         <Setter Property="HorizontalTextAlignment" Value="End"/>            
@@ -23,6 +24,13 @@
         <Setter Property="FontFamily" Value="SublimaBold"/>
         <Setter Property="FontSize" Value="50"/>
     </Style>
-    <!--#region Labels -->
+
+    <!--#endregion-->
+    <Style TargetType="BoxView">
+        <Setter Property="Color" Value="{AppThemeBinding Dark={StaticResource DarkPrimary}, Light={StaticResource LightPrimary}}"/>
+        <Setter Property="CornerRadius" Value="30,30,0,0"/>
+    </Style>
+    <!--#region BoxView -->
+    
     <!--#endregion-->
 </ResourceDictionary>
