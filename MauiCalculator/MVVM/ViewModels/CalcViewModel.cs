@@ -13,7 +13,16 @@ namespace MauiCalculator.MVVM.ViewModels
     {
         public string Formula { get; set; }
         public string Result { get; set; } = "0";
+
         public ICommand OperationCommand =>
-            new Command((number) => { Formula += number; });
+            new Command((number) => 
+            { 
+               
+                if(!(number.Equals(".") && Formula.Contains(".")))
+                {
+                    Formula += number;
+                }
+                
+            });
     }
 }
