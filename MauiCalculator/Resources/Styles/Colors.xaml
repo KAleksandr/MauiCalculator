@@ -11,6 +11,9 @@
 
     <Color x:Key="LightPrimary">#f2f2f2</Color>
     <Color x:Key="LightSecondary">#f7f7f7</Color>
+    
+    <Color x:Key="YellowColor">#F4AB41</Color>
+    <Color x:Key="RedColor">#D3635E</Color>
 
     <Color x:Key="Primary">#512BD4</Color>
     <Color x:Key="Secondary">#DFD8F7</Color>
