@@ -12,14 +12,33 @@ namespace MauiCalculator.MVVM.ViewModels
     [AddINotifyPropertyChangedInterface]
     public class CalcViewModel
     {
-        public string Formula { get; set; }
+        public string Formula { get; set; } = "";
         public string Result { get; set; } = "0";
-
+        private List<string> operationCommands = new List<string>() {"/","*","-","+","%" };
         public ICommand OperationCommand =>
             new Command((number) => 
-            { 
-               
-                if(!(number.Equals(".") && Formula.Contains(".")))
+            {
+                if(Formula.Length > 0)
+                {
+                    
+                    if (operationCommands.Contains(number.ToString().Trim()) && Formula.Length > 0 && string.IsNullOrWhiteSpace(Formula[Formula.Length - 1].ToString()))
+                    {
+                        Formula = Formula.Substring(0, Formula.Length - 3);
+                    }
+                    
+                    
+                   
+                }
+                bool exists = false;
+                operationCommands.ForEach(c => { if (!exists) exists = Formula.Contains(c); });
+                if (!operationCommands.Contains(number) && exists)
+                {
+                    Formula += number;
+                    var calculation = Calculator.Calculate(Formula);
+                    Formula = Result = calculation.Result.ToString();
+                    exists = false;
+                }
+                else if (!(number.Equals(".") && Formula.Contains(".")))
                 {
                     Formula += number;
                 }
